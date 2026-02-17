@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "ZPIX";
+    src: url("../assets/fonts/zpix.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PIXEL_TITLE";
+    src: url("../assets/fonts/pixel-title.woff2") format("woff2");
+    font-display: swap;
+}
