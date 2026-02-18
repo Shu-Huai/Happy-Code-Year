@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
+const props = defineProps<{ userId?: string }>();
 const emit = defineEmits<{ (e: "done"): void }>();
 
 const prompt = "PS C:\\> ";
@@ -45,7 +46,8 @@ async function typeText(s: string, speed = 60) {
 
 async function run() {
     await sleep(180);
-    await typeText("HAPPY NEW YEAR", 55);
+    const bootText = props.userId ? `HAPPY NEW YEAR -id=${props.userId}` : "HAPPY NEW YEAR";
+    await typeText(bootText, 55);
     await sleep(120);
 
     // 固化命令行（回车）

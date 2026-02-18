@@ -15,9 +15,10 @@
 
             <div class="intro">
                 <div class="invader">
-                    <InvaderIcon :size="70" />
+                    <InvaderIcon :size="80" />
                 </div>
                 <div class="intro-text">
+                    <div v-if="props.userId">用户名：{{ props.userId }}</div>
                     <div>Welcome to 丙午马年 v2026.2.17</div>
                     <div>
                         cwd:
@@ -188,6 +189,8 @@
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import InvaderIcon from "./InvaderIcon.vue";
 
+const props = defineProps<{ userId?: string }>();
+
 const DESIGN_W = 980;
 const DESIGN_H = 720;
 
@@ -313,7 +316,7 @@ const stageStyle = computed(() => {
 }
 
 .intro {
-    margin-top: 8px;
+    margin-top: 10px;
     display: flex;
     align-items: flex-start;
     gap: 18px;
@@ -322,6 +325,7 @@ const stageStyle = computed(() => {
 
 .invader {
     width: 86px;
+    margin-top: -8px;
     display: grid;
     place-items: center;
 }
@@ -347,7 +351,7 @@ const stageStyle = computed(() => {
 
 /* Panels */
 .panels {
-    margin-top: 0px;
+    margin-top: 10px;
     padding: 0 34px;
     display: grid;
     grid-template-columns: 2fr 1fr;
